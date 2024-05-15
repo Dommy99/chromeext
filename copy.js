@@ -13,3 +13,21 @@ function myFunction() {
     alert("Copied the text: " + copyText.value);
   }
   
+  document.getElementById('copyButton').addEventListener('click', function() {
+    const name = document.getElementById('name').value;
+    const sentence1 = document.getElementById('sentence1').value;
+    const sentence2 = document.getElementById('sentence2').value;
+    const sentence3 = document.getElementById('sentence3').value;
+  
+    const textToCopy = `Name: ${name}\nSentence 1: ${sentence1}\nSentence 2: ${sentence2}\nSentence 3: ${sentence3}`;
+  
+    const textArea = document.createElement('textarea');
+    textArea.value = textToCopy;
+    document.body.appendChild(textArea);
+    textArea.select();
+    document.execCommand('copy');
+    document.body.removeChild(textArea);
+  
+    alert('Text copied to clipboard!');
+  });
+  
